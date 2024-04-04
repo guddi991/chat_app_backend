@@ -19,3 +19,8 @@ const [names] = arr;
 // const [names,age] = arr; =>now names at 0 index. age at 1 index
  
 console.log(names)
+
+module.exports = {
+    arr,
+    obj
+}

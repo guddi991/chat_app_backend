@@ -2,8 +2,10 @@
 const dotenv = require('dotenv');
 const db = require('./config/db')
 const express = require('express')
+const destructuring = require('./destructuring')
 const app = express()
 dotenv.config();
+
 
 const PORT = process.env.PORT
 
