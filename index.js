@@ -27,7 +27,7 @@ app.post('/register',async (req,res)=>{
     
 })
 
-app.get('/users',async (req,res)=>{
+app.get('/dashboard',async (req,res)=>{
     try{
         // const [users] = await db.sequelize.query(`SELECT * from users`)
         const result = await allUsers()
@@ -47,6 +47,7 @@ app.post('/login',async (req,res)=>{
         return res.status(500).send({"status":"false","message":err})
     }
 })
+
 
 
 app.listen(PORT,()=>{

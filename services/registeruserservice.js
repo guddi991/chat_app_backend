@@ -12,6 +12,17 @@ const addUser = async ({firstname, lastname, gender, email, password}) => {
     
 }
 
+const uniqueEmail = async (email) =>{
+    try{
+        const [result] = await sequelize.query(`SELECT * from users where email = "${email}"`)
+        return result
+    
+    }catch(err){
+        throw new Error("Message "+err)
+    }
+}
+
 module.exports = {
-    addUser
+    addUser,
+    uniqueEmail
 }
