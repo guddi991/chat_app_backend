@@ -1,6 +1,7 @@
 
 const { loginS } = require('../services/loginservice')
 const hashPassword = require('password-hash')
+const jwt = require("jsonwebtoken")
 
 const loginController = async (payload) =>{
     try{
@@ -11,7 +12,9 @@ const loginController = async (payload) =>{
            const isVerify = hashPassword.verify(payload.password,hashedPassword)
 
            if(isVerify){
-            return result
+            const token = jwt.sign(result[0],process.env.JWT_SECRET_KEY,{expiresIn:"30s"})
+            console.log("token" + token)
+            return { token }
            }
            else{
                 return "Password is not valid";
